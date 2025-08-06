@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Farmer's Den Public School</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Remixicon for icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- AOS (Animate On Scroll) library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: #93c5fd;
+      --secondary: #1e40af;
+    }
+    
+    /* WhatsApp float button */
+    .whatsapp-float {
+      position: fixed;
+      width: 70px;
+      height: 70px;
+      bottom: 40px;
+      right: 40px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 36px;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .whatsapp-float:hover {
+      background-color: #128C7E;
+    }
+    
+    /* Form input */
+    .form-input {
+      transition: all 0.2s ease;
+    }
+    .form-input:focus {
+      box-shadow: 0 0 0 2px var(--primary-light);
+    }
+    
+    /* Button */
+    .submit-btn {
+      transition: all 0.2s ease;
+    }
+    .submit-btn:hover {
+      background-color: var(--secondary);
+    }
+    
+    /* Contact info card */
+    .contact-card {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Section title */
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 4px;
+      bottom: -10px;
+      left: 20%;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      border-radius: 2px;
+    }
+    
+    /* Mobile menu */
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+    }
+    .mobile-menu.open {
+      max-height: 500px;
+    }
+    
+    /* Map */
+    .map-container {
+      filter: grayscale(30%) brightness(0.95);
+    }
+    .map-container:hover {
+      filter: grayscale(0%) brightness(1);
+    }
+    
+    /* Contact info item */
+    .contact-item {
+      border-left: 3px solid transparent;
+      padding-left: 12px;
+    }
+    .contact-item:hover {
+      border-left-color: var(--primary);
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+  </style>
+</head>
+<body class="font-sans bg-gray-50">
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/9657250776" class="whatsapp-float" target="_blank">
+    <i class="ri-whatsapp-line"></i>
+  </a>
+
+  <!-- Header -->
+  <header class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <img src="images/fdp_logo.webp" alt="School Logo" class="h-14 w-14 object-cover rounded-full">
+        <span class="text-xl md:text-2xl font-bold text-blue-800">Farmer's Den Public School</span>
+      </div>
+
+      <!-- Toggle button for mobile -->
+      <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none" aria-label="Toggle menu">
+        <i class="ri-menu-line text-3xl"></i>
+      </button>
+
+      <nav class="hidden md:block">
+        <ul class="flex space-x-8">
+          <li><a href="index.html" class="text-gray-700 hover:text-blue-600 px-2 py-1">Home</a></li>
+          <li><a href="about.html" class="text-gray-700 hover:text-blue-600 px-2 py-1">About</a></li>
+          <li><a href="admissions.html" class="text-gray-700 hover:text-blue-600 px-2 py-1">Admissions</a></li>
+          <li><a href="academics.html" class="text-gray-700 hover:text-blue-600 px-2 py-1">Academics</a></li>
+          <li><a href="facultyandInformation.html" class="text-gray-700 hover:text-blue-600 px-2 py-1">Faculty And Info</a></li>
+          <li><a href="contact.html" class="text-blue-800 font-medium px-2 py-1">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu md:hidden bg-white shadow-xl">
+      <ul class="space-y-3 px-6 py-4">
+        <li><a href="index.html" class="block py-3 text-gray-700 hover:text-blue-600 border-b border-gray-100">Home</a></li>
+        <li><a href="about.html" class="block py-3 text-gray-700 hover:text-blue-600 border-b border-gray-100">About</a></li>
+        <li><a href="admissions.html" class="block py-3 text-gray-700 hover:text-blue-600 border-b border-gray-100">Admissions</a></li>
+        <li><a href="academics.html" class="block py-3 text-gray-700 hover:text-blue-600 border-b border-gray-100">Academics</a></li>
+        <li><a href="facultyandInformation.html" class="block py-3 text-gray-700 hover:text-blue-600 border-b border-gray-100">Faculty And Info</a></li>
+        <li><a href="contact.html" class="block py-3 text-blue-800 font-medium">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <h1 class="section-title text-4xl md:text-5xl font-bold text-center text-blue-800 mb-6">Contact Us</h1>
+      <p class="text-xl text-gray-700 text-center max-w-3xl mx-auto mb-16">
+        If you have any questions or need more information, feel free to reach out to us using the form below or through the provided contact details.
+      </p>
+
+      <div class="flex flex-col lg:flex-row gap-12">
+        <!-- Contact Form -->
+        <form class="lg:w-1/2" id="contactForm">
+          <div class="mb-8">
+            <label for="name" class="block text-gray-700 font-medium mb-3 text-lg">Your Name</label>
+            <input type="text" id="name" name="name" required 
+                   class="form-input w-full p-5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg">
+          </div>
+
+          <div class="mb-8">
+            <label for="phone" class="block text-gray-700 font-medium mb-3 text-lg">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required 
+                   class="form-input w-full p-5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg">
+          </div>
+
+          <div class="mb-8">
+            <label for="work" class="block text-gray-700 font-medium mb-3 text-lg">Type of Work / Inquiry</label>
+            <textarea id="work" name="work" rows="5" required 
+                      class="form-input w-full p-5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg"></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn w-full bg-blue-800 hover:bg-blue-700 text-white font-bold py-5 px-6 rounded-xl text-lg">
+            Send via WhatsApp
+          </button>
+        </form>
+
+        <!-- Contact Info -->
+        <div class="lg:w-1/2 contact-card bg-gray-50 p-10 rounded-2xl">
+          <div class="space-y-10">
+            <div class="contact-item">
+              <h3 class="text-2xl font-bold text-blue-800 mb-4">School Address</h3>
+              <p class="text-gray-700 text-lg flex items-start">
+                <i class="ri-map-pin-line text-2xl text-blue-600 mr-3 mt-1"></i>
+                <span>Godavari Sankulan Phase 2, Chasnali, Tal. Kopargaon, Dist. A.nagar</span>
+              </p>
+            </div>
+
+            <div class="contact-item">
+              <h3 class="text-2xl font-bold text-blue-800 mb-4">Phone</h3>
+              <p class="text-gray-700 text-lg flex items-center">
+                <i class="ri-phone-line text-2xl text-blue-600 mr-3"></i>
+                <span>+919657250776</span>
+              </p>
+            </div>
+
+            <div class="contact-item">
+              <h3 class="text-2xl font-bold text-blue-800 mb-4">Email</h3>
+              <p class="text-gray-700 text-lg flex items-center">
+                <i class="ri-mail-line text-2xl text-blue-600 mr-3"></i>
+                <span>fdpschool2@gmail.com</span>
+              </p>
+            </div>
+
+            <div class="contact-item">
+              <h3 class="text-2xl font-bold text-blue-800 mb-4">Working Hours</h3>
+              <p class="text-gray-700 text-lg flex items-center">
+                <i class="ri-time-line text-2xl text-blue-600 mr-3"></i>
+                <span>Monday – Saturday: 9:00 AM – 5:00 PM</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Embedded Google Map -->
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.450308307314!2d74.29003507505067!3d19.947555981444843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdc4bc9152e46e1%3A0x541e67db3a20e06a!2sFarmer&#39;s%20Den%20Public%20School%20Chasnali!5e0!3m2!1sen!2sin!4v1753969926252!5m2!1sen!2sin" 
+      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      class="w-full">
+    </iframe>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div>
+          <p class="mb-3 text-lg"><strong class="font-semibold">Address:</strong></p>
+          <p class="flex items-start">
+            <i class="ri-map-pin-line text-xl text-blue-400 mr-3 mt-1"></i>
+            <span>Godavari Sankulan Phase 2, Chasnali, Tal. Kopargaon, Dist. A.nagar</span>
+          </p>
+        </div>
+        <div>
+          <p class="mb-3 text-lg"><strong class="font-semibold">Phone:</strong></p>
+          <p class="flex items-center">
+            <i class="ri-phone-line text-xl text-blue-400 mr-3"></i>
+            <span>+91 9657250776</span>
+          </p>
+        </div>
+        <div>
+          <p class="mb-3 text-lg"><strong class="font-semibold">Email:</strong></p>
+          <p class="flex items-center">
+            <i class="ri-mail-line text-xl text-blue-400 mr-3"></i>
+            <span>fdpschool2@gmail.com</span>
+          </p>
+        </div>
+      </div>
+      <div class="mt-16 pt-8 border-t border-gray-700 text-center">
+        <p>&copy; Made by <a href="http://cynortech.in">CYNORTech</a> | © 2025 Farmer's Den Public School  All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS (Animate On Scroll) with minimal settings
+    AOS.init({
+      once: true,
+      duration: 500,
+      offset: 120,
+    });
+    
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const work = document.getElementById('work').value;
+
+      const message = `Hello, my name is ${name}. My phone number is ${phone}. I would like to ask about: ${work}`;
+      const url = `https://api.whatsapp.com/send?phone=919657250776&text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    });
+
+    // Mobile menu toggle
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("mobile-menu");
+    const icon = toggle.querySelector("i");
+    
+    if (toggle && menu) {
+      toggle.addEventListener("click", function() {
+        menu.classList.toggle("open");
+        if (menu.classList.contains("open")) {
+          icon.classList.remove("ri-menu-line");
+          icon.classList.add("ri-close-line");
+        } else {
+          icon.classList.remove("ri-close-line");
+          icon.classList.add("ri-menu-line");
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

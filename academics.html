@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Academics - Farmer's Den Public School</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Remixicon for icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    /* Custom styles */
+    :root {
+      --primary: #2563eb;
+      --primary-light: #93c5fd;
+      --secondary: #1e40af;
+    }
+    
+    /* Hero section */
+    .academics-hero {
+      background-image: url('images/FDP_academics.webp');
+      background-size: cover;
+      background-position: center;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .academics-hero .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* WhatsApp float button */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .whatsapp-float:hover {
+      background-color: #128C7E;
+      transform: scale(1.1);
+    }
+    
+    /* Card hover effects */
+    .curriculum-card {
+      position: relative;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+    .curriculum-card:hover {
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Section titles */
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+    
+    /* Navbar styling */
+    .nav-item {
+      position: relative;
+    }
+    .nav-item::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+    .nav-item:hover::after {
+      width: 100%;
+    }
+    
+    /* Mobile menu */
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .mobile-menu.open {
+      max-height: 500px;
+    }
+    
+    /* Auto-scrolling gallery */
+    .gallery-wrapper {
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-scroll {
+      display: flex;
+      animation: scroll 30s linear infinite;
+      width: calc(280px * 10);
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-280px * 5)); }
+    }
+    .gallery-scroll img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin: 0 15px;
+    }
+    .gallery-wrapper:hover .gallery-scroll {
+      animation-play-state: paused;
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+  </style>
+</head>
+<body class="font-sans bg-gray-50">
+
+  <!-- Header -->
+  <header class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <img src="images/fdp_logo.webp" alt="School Logo" class="h-14 w-14 object-cover rounded-full">
+        <span class="text-xl md:text-2xl font-bold text-blue-800">Farmer's Den Public School</span>
+      </div>
+
+      <!-- Toggle button for mobile -->
+      <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none" aria-label="Toggle menu">
+        <i class="ri-menu-line text-3xl"></i>
+      </button>
+
+      <nav class="hidden md:block">
+        <ul class="flex space-x-8">
+          <li class="nav-item"><a href="index.html" class="text-gray-700 hover:text-blue-600 px-2 py-1">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="text-gray-700 hover:text-blue-600 px-2 py-1">About</a></li>
+          <li class="nav-item"><a href="admissions.html" class="text-gray-700 hover:text-blue-600 px-2 py-1">Admissions</a></li>
+          <li class="nav-item"><a href="academics.html" class="text-blue-800 font-medium px-2 py-1">Academics</a></li>
+          <li class="nav-item"><a href="facultyandInformation.html" class="text-gray-700 hover:text-blue-600 px-2 py-1">Faculty And Info</a></li>
+          <li class="nav-item"><a href="contact.html" class="text-gray-700 hover:text-blue-600 px-2 py-1">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu md:hidden bg-white shadow-xl">
+      <ul class="space-y-3 px-6 py-4">
+        <li><a href="index.html" class="block py-3 text-gray-700 hover:text-blue-600 border-b border-gray-100">Home</a></li>
+        <li><a href="about.html" class="block py-3 text-gray-700 hover:text-blue-600 border-b border-gray-100">About</a></li>
+        <li><a href="admissions.html" class="block py-3 text-gray-700 hover:text-blue-600 border-b border-gray-100">Admissions</a></li>
+        <li><a href="academics.html" class="block py-3 text-blue-800 font-medium border-b border-gray-100">Academics</a></li>
+        <li><a href="facultyandInformation.html" class="block py-3 text-gray-700 hover:text-blue-600 border-b border-gray-100">Faculty And Info</a></li>
+        <li><a href="contact.html" class="block py-3 text-gray-700 hover:text-blue-600">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="academics-hero">
+    <div class="overlay">
+      <h1 class="text-5xl md:text-7xl font-bold text-white text-center">
+        Academic Excellence
+      </h1>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="section-title text-4xl font-bold text-center text-blue-800 mb-10">Our Academic Philosophy</h2>
+      <p class="text-xl text-gray-700 text-center leading-relaxed">
+        At Farmer's Den Public School, we are committed to academic excellence through a well-balanced curriculum. We focus on both intellectual growth and the development of strong character. Our programs are designed to foster creativity, critical thinking, and a passion for lifelong learning.
+      </p>
+    </div>
+  </section>
+
+  <!-- Curriculum Overview -->
+  <section class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title text-4xl font-bold text-center text-blue-800 mb-16">Curriculum Structure</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Early Years -->
+        <div class="curriculum-card bg-white p-8 rounded-xl">
+          <div class="icon-box mb-6 text-4xl text-blue-800 text-center">
+            <i class="ri-pencil-ruler-line"></i>
+          </div>
+          <h3 class="text-2xl font-semibold text-center text-blue-800 mb-5">Early Years (Nursery & Kindergarten)</h3>
+          <p class="text-gray-700 text-center">
+            Focus on play-based learning, foundational literacy and numeracy skills, and social-emotional development in a nurturing environment.
+          </p>
+        </div>
+        
+        <!-- Primary School -->
+        <div class="curriculum-card bg-white p-8 rounded-xl">
+          <div class="icon-box mb-6 text-4xl text-blue-800 text-center">
+            <i class="ri-book-open-line"></i>
+          </div>
+          <h3 class="text-2xl font-semibold text-center text-blue-800 mb-5">Primary School (Grades 1–5)</h3>
+          <p class="text-gray-700 text-center">
+            Core subjects include English, Mathematics, Science, and Social Studies, supported by creative arts, physical education, and digital literacy.
+          </p>
+        </div>
+        
+        <!-- Middle & Senior School -->
+        <div class="curriculum-card bg-white p-8 rounded-xl">
+          <div class="icon-box mb-6 text-4xl text-blue-800 text-center">
+            <i class="ri-lightbulb-flash-line"></i>
+          </div>
+          <h3 class="text-2xl font-semibold text-center text-blue-800 mb-5">Middle & Senior School (Grades 6–10)</h3>
+          <p class="text-gray-700 text-center">
+            Students are challenged with advanced coursework, critical thinking projects, and opportunities for leadership. We prepare students for board examinations and beyond.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Co-Curricular Activities -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="section-title text-4xl font-bold text-center text-blue-800 mb-10">Beyond the Classroom</h2>
+      <p class="text-xl text-gray-700 text-center leading-relaxed">
+        In addition to academics, our students participate in a wide range of co-curricular activities such as sports, music, drama, robotics, coding clubs, and debate. These activities help students discover and develop their unique talents.
+      </p>
+    </div>
+  </section>
+
+  <!-- Auto-scrolling Image Gallery -->
+  <section class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title text-4xl font-bold text-center text-blue-800 mb-16">Our Campus & Activities</h2>
+      <div class="gallery-wrapper">
+        <div class="gallery-scroll">
+          <img src="images/FDP_extra1.webp" alt="Students in science lab">
+          <img src="images/FDP_extra2.webp" alt="Sports day">
+          <img src="images/FDP_extra3.webp" alt="Music class">
+          <img src="images/FDP_extra4.webp" alt="Art exhibition">
+          <img src="images/FDP_extra5.webp" alt="Robotics club">
+          <!-- Duplicate images for seamless looping -->
+          <img src="images/FDP_extra6.webp" alt="Students in science lab">
+          <img src="images/FDP_extra7.webp" alt="Sports day">
+          <img src="images/FDP_extra8.webp" alt="Music class">
+          <img src="images/FDP_extra9.webp" alt="Art exhibition">
+          <img src="images/FDP_extra10.webp" alt="Robotics club">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-16">
+    <div class="container mx-auto px-4">
+      <h3 class="text-3xl font-bold mb-10 text-center">Contact Information</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="text-center">
+          <div class="icon-box mb-4 text-3xl text-blue-400">
+            <i class="ri-map-pin-line"></i>
+          </div>
+          <p class="mb-2 text-lg"><strong class="font-semibold">Address:</strong></p>
+          <p>Godavari Sankulan Phase 2, Chasnali, Tal. Kopargaon, Dist. A.nagar</p>
+        </div>
+        <div class="text-center">
+          <div class="icon-box mb-4 text-3xl text-blue-400">
+            <i class="ri-phone-line"></i>
+          </div>
+          <p class="mb-2 text-lg"><strong class="font-semibold">Phone:</strong></p>
+          <p>+91 9657250776</p>
+        </div>
+        <div class="text-center">
+          <div class="icon-box mb-4 text-3xl text-blue-400">
+            <i class="ri-mail-line"></i>
+          </div>
+          <p class="mb-2 text-lg"><strong class="font-semibold">Email:</strong></p>
+          <p>fdpschool2@gmail.com</p>
+        </div>
+      </div>
+      <div class="mt-16 pt-8 border-t border-gray-700 text-center">
+        <p>&copy; Made by <a href="http://cynortech.in">CYNORTech</a> | © 2025 Farmer's Den Public School  All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/9657250776" target="_blank" class="whatsapp-float">
+    <i class="ri-whatsapp-line"></i>
+  </a>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Mobile menu toggle
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("mobile-menu");
+      const icon = toggle.querySelector("i");
+      
+      if (toggle && menu) {
+        toggle.addEventListener("click", function() {
+          menu.classList.toggle("open");
+          if (menu.classList.contains("open")) {
+            icon.classList.remove("ri-menu-line");
+            icon.classList.add("ri-close-line");
+          } else {
+            icon.classList.remove("ri-close-line");
+            icon.classList.add("ri-menu-line");
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

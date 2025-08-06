@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admissions - Farmer's Den Public School</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Remixicon for icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    /* Custom styles */
+    .admission-intro {
+      background-image: url('images/back.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .admission-intro::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    
+    /* WhatsApp float button */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 3px #999;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .whatsapp-float:hover {
+      background-color: #128C7E;
+      transform: scale(1.1);
+      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Table styling */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+    }
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+    tr:hover td {
+      background-color: #e2e8f0;
+    }
+    
+    /* Form input styling */
+    .form-input {
+      transition: all 0.3s ease;
+    }
+    .form-input:focus {
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    }
+    
+    /* Button styling */
+    .btn-animate {
+      transition: all 0.3s ease;
+    }
+    .btn-animate:hover {
+      background-color: #1e40af;
+    }
+    
+    /* Card hover effect */
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Navbar item animation */
+    .nav-item {
+      position: relative;
+    }
+    .nav-item::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #2563eb;
+      transition: width 0.3s ease;
+    }
+    .nav-item:hover::after {
+      width: 100%;
+    }
+    
+    /* Mobile menu */
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .mobile-menu.open {
+      max-height: 500px;
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+  </style>
+</head>
+<body class="font-sans bg-gray-50">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <img src="images/fdp_logo.webp" alt="School Logo" class="h-12 w-12 object-cover rounded-full">
+        <span class="text-xl md:text-2xl font-bold text-blue-800">Farmer's Den Public School</span>
+      </div>
+
+      <!-- Toggle button for mobile -->
+      <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none" aria-label="Toggle menu">
+        <i class="ri-menu-line text-2xl"></i>
+      </button>
+
+      <nav class="hidden md:block">
+        <ul class="flex space-x-6">
+          <li class="nav-item"><a href="index.html" class="text-gray-700 hover:text-blue-600">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="text-gray-700 hover:text-blue-600">About</a></li>
+          <li class="nav-item"><a href="admissions.html" class="text-blue-800 font-medium">Admissions</a></li>
+          <li class="nav-item"><a href="academics.html" class="text-gray-700 hover:text-blue-600">Academics</a></li>
+          <li class="nav-item"><a href="facultyandInformation.html" class="text-gray-700 hover:text-blue-600">Faculty And Info</a></li>
+          <li class="nav-item"><a href="contact.html" class="text-gray-700 hover:text-blue-600">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu md:hidden bg-white shadow-lg">
+      <ul class="space-y-2 px-4 py-2">
+        <li><a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600">Home</a></li>
+        <li><a href="about.html" class="block py-2 text-gray-700 hover:text-blue-600">About</a></li>
+        <li><a href="admissions.html" class="block py-2 text-blue-800 font-medium">Admissions</a></li>
+        <li><a href="academics.html" class="block py-2 text-gray-700 hover:text-blue-600">Academics</a></li>
+        <li><a href="facultyandInformation.html" class="block py-2 text-gray-700 hover:text-blue-600">Faculty And Info</a></li>
+        <li><a href="contact.html" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Admission Intro Section -->
+  <section class="admission-intro py-16 text-white">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="flex flex-col lg:flex-row gap-8 items-center">
+        <div class="lg:w-1/2">
+          <img src="images/admission.jpg" alt="Admission Team" class="w-full rounded-lg shadow-lg">
+        </div>
+        <div class="lg:w-1/2 space-y-4">
+          <p class="italic text-lg">
+            Thank you for considering our school for your child's education. This page provides an overview of our admissions process, key requirements, and how to get started. Our dedicated admissions team is available to support you every step of the way. We look forward to welcoming your family into our learning community.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Year Group Placement Guide -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-blue-800 mb-6">Year Group Placement Guide</h2>
+      <p class="text-center text-gray-700 mb-12">
+        A student's year group is based on their age as of 31st August in the academic year of entry.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Foundation Stage -->
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
+          <h3 class="text-xl font-semibold text-blue-800 mb-4">Foundation Stage</h3>
+          <table class="w-full">
+            <thead class="bg-blue-800 text-white">
+              <tr>
+                <th class="p-3">Age </th>
+                <th class="p-3">Eligible Year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="p-3">3</td><td class="p-3">Nursery</td></tr>
+              <tr><td class="p-3">4</td><td class="p-3">Reception</td></tr>
+              <tr><td class="p-3">5</td><td class="p-3">Year 1</td></tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Primary School -->
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
+          <h3 class="text-xl font-semibold text-blue-800 mb-4">Primary School</h3>
+          <table class="w-full">
+            <thead class="bg-blue-800 text-white">
+              <tr>
+                <th class="p-3">Age</th>
+                <th class="p-3">Eligible Year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="p-3">6</td><td class="p-3">Year 2</td></tr>
+              <tr><td class="p-3">7</td><td class="p-3">Year 3</td></tr>
+              <tr><td class="p-3">8</td><td class="p-3">Year 4</td></tr>
+              <tr><td class="p-3">9</td><td class="p-3">Year 5</td></tr>
+              
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Secondary School -->
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
+          <h3 class="text-xl font-semibold text-blue-800 mb-4">Secondary School</h3>
+          <table class="w-full">
+            <thead class="bg-blue-800 text-white">
+              <tr>
+                <th class="p-3">Age</th>
+                <th class="p-3">Eligible Year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="p-3">10</td><td class="p-3">Year 6</td></tr>
+              <tr><td class="p-3">11</td><td class="p-3">Year 7</td></tr>
+              <tr><td class="p-3">12</td><td class="p-3">Year 8</td></tr>
+              <tr><td class="p-3">13</td><td class="p-3">Year 9</td></tr>
+              <tr><td class="p-3">14</td><td class="p-3">Year 10</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Admission Form Section -->
+  <section class="py-16 bg-gray-100">
+  <div class="container mx-auto px-4 max-w-3xl">
+    <h2 class="text-3xl font-bold text-center text-blue-800 mb-8">Apply for Admission</h2>
+    <form id="admissionForm" class="space-y-6">
+        <div>
+          <input type="text" id="name" placeholder="Parent Name" required 
+                 class="form-input w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        </div>
+        <div>
+          <input type="text" id="childName" placeholder="Child's Name" required 
+                 class="form-input w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        </div>
+        <div>
+          <input type="number" id="age" placeholder="Child's Age" required 
+                 class="form-input w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        </div>
+        <div>
+          <input type="text" id="class" placeholder="Preferred Class" required 
+                 class="form-input w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        </div>
+        <div>
+          <input type="text" id="phone" placeholder="Your WhatsApp Number" required 
+                 class="form-input w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        </div>
+        <button type="submit" class="btn-animate w-full bg-blue-800 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg shadow-md">
+        Generate PDF and Share via WhatsApp
+      </button>
+      </form>
+    </div>
+  </section>
+
+  <div id="pdfModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white p-6 rounded-lg max-w-md w-full">
+    <h3 class="text-xl font-bold mb-4">Download & Share</h3>
+    <p class="mb-4">Your admission form PDF is ready. Please download and share it via WhatsApp:</p>
+    <div class="flex flex-col space-y-3">
+      <a id="downloadPdf" class="w-full bg-blue-600 text-white text-center py-2 px-4 rounded hover:bg-blue-700">
+        Download PDF
+      </a>
+      <a id="shareWhatsApp" class="w-full bg-green-600 text-white text-center py-2 px-4 rounded hover:bg-green-700">
+        Share via WhatsApp
+      </a>
+      <button onclick="document.getElementById('pdfModal').classList.add('hidden')" 
+              class="w-full bg-gray-300 py-2 px-4 rounded">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+
+  <!-- Add this in your head section -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/9657250776" target="_blank" class="whatsapp-float">
+    <i class="ri-whatsapp-line"></i>
+  </a>
+
+  <!-- JavaScript -->
+  <script>
+ document.getElementById('admissionForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Get form values
+  const formData = {
+    name: document.getElementById('name').value.trim(),
+    childName: document.getElementById('childName').value.trim(),
+    age: document.getElementById('age').value.trim(),
+    className: document.getElementById('class').value.trim(),
+    phone: document.getElementById('phone').value.trim()
+  };
+
+  // Validate fields
+  if (!formData.name || !formData.childName || !formData.age || !formData.className || !formData.phone) {
+    alert('Please fill in all required fields');
+    return;
+  }
+
+  // Generate PDF
+  generatePdf(formData);
+});
+
+function generatePdf(formData) {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  
+  // Add school logo (if available)
+  try {
+    const logo = new Image();
+    logo.src = 'images/fdp_logo.webp';
+    doc.addImage(logo, 'WEBP', 15, 10, 30, 30);
+  } catch (e) {
+    console.log('Could not load logo');
+  }
+
+  // Set document properties
+  doc.setProperties({
+    title: 'Admission Form - ' + formData.childName,
+    subject: 'School Admission',
+    author: "Farmer's Den Public School"
+  });
+
+  // Add title
+  doc.setFontSize(20);
+  doc.setTextColor(40, 53, 147); // Blue-800
+  doc.text("Admission Application Form", 105, 20, { align: 'center' });
+  
+  // Add form data
+  doc.setFontSize(12);
+  doc.setTextColor(0, 0, 0); // Black
+  
+  const startY = 50;
+  let currentY = startY;
+  
+  // Create a nice table-like structure
+  const data = [
+    ["Parent Name", formData.name],
+    ["Child's Name", formData.childName],
+    ["Child's Age", formData.age],
+    ["Preferred Class", formData.className],
+    ["Contact Number", formData.phone],
+    ["Submission Date", new Date().toLocaleDateString()]
+  ];
+  
+  // Add table using autoTable plugin
+  doc.autoTable({
+    startY: currentY,
+    head: [['Field', 'Details']],
+    body: data,
+    theme: 'grid',
+    headStyles: { 
+      fillColor: [59, 130, 246], // Blue-500
+      textColor: 255 // White
+    },
+    alternateRowStyles: {
+      fillColor: [241, 245, 249] // Gray-50
+    }
+  });
+  
+  // Final touches
+  doc.setFontSize(10);
+  doc.setTextColor(100, 100, 100);
+  doc.text("Generated by Farmer's Den Public School Admission Portal", 105, 285, { align: 'center' });
+  
+  // Save the PDF
+  const pdfBlob = doc.output('blob');
+  const pdfUrl = URL.createObjectURL(pdfBlob);
+  
+  // Show modal with options
+  document.getElementById('downloadPdf').href = pdfUrl;
+  document.getElementById('downloadPdf').download = `AdmissionForm_${formData.childName}.pdf`;
+  
+  // Set up WhatsApp share
+  const whatsappNumber = '9657250776'.replace(/\D/g, '');
+  const whatsappMessage = `Admission Form for ${formData.childName}\n\nPlease find attached the admission form details.`;
+  document.getElementById('shareWhatsApp').href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+  
+  // Show modal
+  document.getElementById('pdfModal').classList.remove('hidden');
+}
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("mobile-menu");
+      const icon = toggle.querySelector("i");
+      
+      if (toggle && menu) {
+        toggle.addEventListener("click", function() {
+          menu.classList.toggle("open");
+          // Toggle between menu and close icons
+          if (menu.classList.contains("open")) {
+            icon.classList.remove("ri-menu-line");
+            icon.classList.add("ri-close-line");
+          } else {
+            icon.classList.remove("ri-close-line");
+            icon.classList.add("ri-menu-line");
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
