@@ -27,10 +27,20 @@
     
     /* Hero section background */
     .hero {
-      background-image: url('images/fdps_bg.jpeg');
-      background-size: cover;
-      background-position: center;
-    }
+  background-image: url('images/fdps_bg.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Mobile view ke liye */
+@media (max-width: 768px) {
+  .hero {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+}
+
     
     /* WhatsApp float button */
     .whatsapp-float {
@@ -472,4 +482,5 @@
 </body>
 
 </html>
+
 
