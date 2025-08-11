@@ -26,7 +26,8 @@
     }
     
     /* Hero section background */
-    .hero {
+    /* Hero section background */
+.hero {
   background-image: url('images/fdps_bg.jpeg'), url('images/bg-2.jpeg');
   background-position: center top, center bottom;
   background-repeat: no-repeat, no-repeat;
@@ -36,11 +37,17 @@
 /* Mobile view ke liye */
 @media (max-width: 768px) {
   .hero {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: top center;
+    /* Mobile pe dono images ek ke baad ek stack ho jayenge */
+    background-image: 
+      url('images/fdps_bg.jpeg'),
+      url('images/bg-2.jpeg');
+    background-position: top center, bottom center;
+    background-repeat: no-repeat, no-repeat;
+    background-size: contain, contain;
+    background-color: #000; /* agar gap aaye to black fill */
   }
 }
+
 
     
     /* WhatsApp float button */
@@ -483,6 +490,7 @@
 </body>
 
 </html>
+
 
 
 
